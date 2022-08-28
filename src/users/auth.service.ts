@@ -32,6 +32,6 @@ export class AuthService {
       throw new NotFoundException('user not found');
     }
     const result = bcrypt.compareSync(password, users[0].password);
-    console.log(result);
+    return users;
   }
 }
