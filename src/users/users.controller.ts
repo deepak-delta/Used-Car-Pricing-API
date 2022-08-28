@@ -3,6 +3,7 @@ import { createUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
 import { SerializeInterceptor } from '../interceptors/serializr.interceptor';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorators/current-user.decorator';
 
 @Controller('api/v1')
 export class UsersController {
@@ -17,9 +18,14 @@ export class UsersController {
     return user;
   }
 
+  // @Get('/auth/whoami')
+  // whoAmI(@Session() session: any) {
+  //   return this.usersService.findOne(session.userId);
+  // }
+
   @Get('/auth/whoami')
-  whoAmI(@Session() session: any) {
-    return this.usersService.findOne(session.userId);
+  whoAmI(@CurrentUser() user: string) {
+    return user;
   }
 
   @Post('/auth/signout')
