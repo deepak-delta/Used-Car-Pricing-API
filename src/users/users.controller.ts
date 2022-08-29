@@ -5,6 +5,8 @@ import { SerializeInterceptor } from '../interceptors/serializr.interceptor';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 
+import { User } from './user.entity';
+
 @Controller('api/v1')
 export class UsersController {
   constructor(
@@ -24,7 +26,7 @@ export class UsersController {
   // }
 
   @Get('/auth/whoami')
-  whoAmI(@CurrentUser() user: string) {
+  whoAmI(@CurrentUser() user: User) {
     return user;
   }
 
