@@ -9,6 +9,7 @@ import {
 import { CreateReportDto } from './dtos/create-report.dto';
 import { ReportsService } from './reports.service';
 import { AuthGuard } from 'src/guards/auth.guards';
+import { AdminGuard } from 'src/guards/admin.guard';
 import { CurrentUser } from '../users/decorators/current-user.decorator';
 import { User } from '../users/user.entity';
 import { ReportDto } from './dtos/report.dto';
